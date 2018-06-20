@@ -1,0 +1,20 @@
+QUES 1
+In computer systems, an access token contains the security credentials for a login session and identifies the user, 
+the user's groups, the user's privileges, and, in some cases, a particular application.
+    An access token is an object encapsulating the security identity of a process or thread.A token is used to make
+security decisions and to store tamper-proof information about some system entity. While a token is generally used to 
+represent only security information, it is capable of holding additional free-form data that can be attached while the
+token is being created. Tokens can be duplicated without special privilege, for example to create a new token with 
+lower levels of access rights to restrict the access of a launched application. An access token is used by Windows when 
+a process or thread tries to interact with objects that have security descriptors (securable objects).
+
+
+QUES 2
+1)www.google.com        216.58.194.100
+2)www.facebook.com 	31.13.69.230
+
+QUES 4
+TAKING EXAMPLE OF A CAR
+Library: A library is a collection of functions, often grouped into multiple program files, but packaged into a single archive file. This contains programs created by other folks, so that you don't have to reinvent the wheel. (e.g. junit.jar, log4j.jar). A library generally has a key role, but does all of its work behind the scenes, it doesn't have a GUI. Car's engine.
+
+API: The library publisher's documentation. This is how you should use my library. (e.g. log4j API, junit API). Car's user manual - yes, cars do come with one too!

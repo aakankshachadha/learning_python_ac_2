@@ -1,0 +1,149 @@
+QUES 1
+def read_last_lines(filename, lines):
+    with open(filename, "r") as f:
+        contents = f.readlines()[-lines:]
+        for line in contents:
+            print(line, end="")
+
+read_last_lines("text.py", 5)
+
+TEXT.TXT************
+hello
+there
+ahdddddddks
+csadhkkkkknfiu
+ashhhhhhhhhhhhhhd
+ddddddddddhrrjkr
+fbfjdf
+dsfhkijsssd
+ndjdkiiiiiiiii
+ffffffffffffffj
+
+OUTPUT*******************
+ddddddddddhrrjkr
+fbfjdf
+dsfhkijsssd
+ndjdkiiiiiiiii
+ffffffffffffffj
+
+
+QUES 2
+def count_words(filename):
+    with open(filename, 'r') as file:
+        text = file.read()
+        words = text.split()
+        wordscount = {} #dictionary to store words and their frequency
+        for word in words:
+            wordscount[word] = words.count(word)
+        print(wordscount)
+
+count_words('text.py')
+
+TEXT.TXT****************
+hello
+there
+ahdddddddks
+csadhkkkkknfiu
+ashhhhhhhhhhhhhhd
+ddddddddddhrrjkr
+fbfjdf
+dsfhkijsssd
+ndjdkiiiiiiiii
+there
+hello
+ffffffffffffffj
+
+OUTPUT*************
+{'hello': 2, 'there': 2, 'ahdddddddks': 1, 'csadhkkkkknfiu': 1, 'ashhhhhhhhhhhhhhd': 1, 'ddddddddddhrrjkr': 1, 'fbfjdf': 1, 'dsfhkijsssd': 1, 'ndjdkiiiiiiiii': 1, 'ffffffffffffffj': 1}
+
+Process finished with exit code 0
+
+QUES 3
+with open("text.txt") as f:  # text.txt is source file
+    with open("out.txt", "w") as f1:  # out.txt is destination file to which text from text.txt file is copied
+        for line in f:
+            f1.write(line)
+
+QUES 4
+with open('file1.txt') as f1, open('file2.txt') as f2:
+    for line1, line2 in zip(f1, f2):
+         # line1 from abc.txt, line2 from test.txtg
+        print(line1 + line2)
+
+FILE1.TXT
+The sun is a huge ball of gases.
+It has a diameter of 1,392,000 km.
+It is so huge that it can hold millions of planets inside it.
+The Sun is mainly made up of hydrogen and helium gas.
+The surface of the Sun is known as the photosphere.
+The photosphere is surrounded by a thin layer of gas known as the chromospheres.
+Without the Sun, there would be no life on Earth.
+There would be no plants, no animals and no human beings.
+
+FILE2.TXT
+The Moon is a barren, rocky world without air and water.
+It has dark lava plain on its surface.
+The Moon is filled wit craters.
+It has no light of its own.
+It gets its light from the Sun.
+The Moo keeps changing its shape as it moves round the Earth.
+It spins on its axis in 27.3 days
+Stars were named after the Edwin Aldrin were the first ones to set their foot on the Moon on 21 July 1969
+
+OUTPUT
+The sun is a huge ball of gases.
+The Moon is a barren, rocky world without air and water.
+
+It has a diameter of 1,392,000 km.
+It has dark lava plain on its surface.
+
+It is so huge that it can hold millions of planets inside it.
+The Moon is filled wit craters.
+
+The Sun is mainly made up of hydrogen and helium gas.
+It has no light of its own.
+
+The surface of the Sun is known as the photosphere.
+It gets its light from the Sun.
+
+The photosphere is surrounded by a thin layer of gas known as the chromospheres.
+The Moo keeps changing its shape as it moves round the Earth.
+
+Without the Sun, there would be no life on Earth.
+It spins on its axis in 27.3 days
+
+There would be no plants, no animals and no human beings.
+Stars were named after the Edwin Aldrin were the first ones to set their foot on the Moon on 21 July 1969
+
+QUES 5
+file='abc.txt'
+import random
+with open(file ,'w') as f:
+    for x in range(10):
+        f.write(str(random.random())+'\n')
+with open('abc.txt', 'r') as f1:
+    words = f1.readlines()
+
+    #Strip the words of the newline characters
+    for word in words:
+        words.sort()
+    #To write the sorted list in new file
+with open('def.txt','w') as f2:
+    f2.write(str(words))
+
+ABC.TXT
+0.9625764587256869
+0.1593236614288237
+0.20009654316910275
+0.29896982703437147
+0.6094331892529428
+0.865062619495698
+0.6699003906726108
+0.5603482169220354
+0.19815996311292416
+0.3203063807547062
+
+
+DEF.TXT
+['0.1593236614288237\n', '0.19815996311292416\n', '0.20009654316910275\n', '0.29896982703437147\n', '0.3203063807547062\n', '0.5603482169220354\n', '0.6094331892529428\n', '0.6699003906726108\n', '0.865062619495698\n', '0.9625764587256869\n']
+

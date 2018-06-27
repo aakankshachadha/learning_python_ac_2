@@ -1,0 +1,62 @@
+QUES 1
+import tkinter as tk
+r=tk.Tk()
+l=tk.Label(text="Hello World") #this is a label.
+l.pack()
+b=tk.Button(text="Exit",command=r.destroy)#when this button is clicked tkinter interface will be closed.
+b.pack()
+r.mainloop()
+
+QUES 2
+import tkinter
+
+tk = tkinter.Tk()
+l = tkinter.Label(text="") #This is an empty label.
+l.pack()
+def clicked():
+    """
+    This method will change the empty label to some text when the button is clicked.
+    """
+    l.configure(text="Button was clicked !!") 
+b = tkinter.Button(text="Click me",command = clicked) #When button is clicked it will call clicked method
+b.pack()
+tk.mainloop()
+
+QUES 3
+import tkinter as tk
+
+
+def clicked():
+    """
+    This method will change the label when the button is clicked.
+    """
+    l.configure(text="Button was clicked !!") 
+
+
+root = tk.Tk()
+frame = tk.Frame(root)
+frame.pack()
+l= tk.Label(frame,text="Hello World", font=20)
+l.pack()
+b1 = tk.Button(frame,text="EXIT",command=quit) #When this button is clicked interface will be closed.
+b1.pack(side=tk.RIGHT)
+b2 = tk.Button(frame,text="CLICK ME",command=clicked) #When this bitton will be clicked it will call clicked method.
+b2.pack(side=tk.LEFT)
+
+root.mainloop()
+
+QUES 4
+import tkinter as tk
+root=tk.Tk()
+lbl = tk.Label( text="Write something here:") #This is a label.
+lbl.grid(column=0, row=0) #position of label
+txt = tk.Entry( width=10) #Here user inputs the text
+txt.grid(column=1, row=0) #position of input box
+def clicked():
+    """
+    This method will print the text you entered in the input box when the button is clicked.
+    """
+    print(txt.get())
+btn = tk.Button( text="Click Me", command=clicked) #This is a button with text Click Me.
+btn.grid(column=2, row=0) #position of button
+root.mainloop()

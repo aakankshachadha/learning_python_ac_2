@@ -1,0 +1,56 @@
+QUES 1
+from tkinter import *
+
+root = Tk()
+scrollbar = Scrollbar(root)
+scrollbar.pack( side = RIGHT, fill = Y )
+dic={"aakanksha":222222,"priya":33333333,"shruti":555555,"himani":111111111,"chetna":999999,"muskan":33333,"dipali":23333444,"kritika":333}
+list = Listbox(root, yscrollcommand = scrollbar.set )
+for line in dic:
+   list.insert(END, str(line))
+list.pack( side = LEFT, fill = BOTH )
+scrollbar.config( command = list.yview )
+
+mainloop()
+
+QUES 2
+from tkinter import *
+
+root = Tk()
+scrollbar = Scrollbar(root)
+scrollbar.pack( side = RIGHT, fill = Y )
+dic={"aakanksha":222222,"priya":33333333,"shruti":555555,"himani":111111111,"chetna":999999,"muskan":33333,"dipali":23333444,"kritika":333}
+list = Listbox(root, yscrollcommand = scrollbar.set )
+for line in dic:
+    list.insert(END, str(line))
+list.pack( side = LEFT, fill = BOTH )
+scrollbar.config( command = list.yview )
+def insert():
+    """
+    this function is used to insert new values to dictionary.
+    :return: 
+    will return a new dictionary with inserted elements
+    """
+    m=int(input("enter the no. of new elements to be inserted:"))
+    for i in range(m):
+        key = input("enter key and value")
+        value = int(input())
+        dic[key] = value
+def update():
+    """
+    this is used to update the existing list with new dic keys in list.
+    :return: 
+    will return a list when update button is clicked.
+    """
+    list.delete(0,END)
+    for line in dic:
+        list.insert(END, str(line))
+    list.pack(side=LEFT, fill=BOTH)
+    scrollbar.config(command=list.yview)
+
+b=Button(text="insert",command=insert) #used to insert new key value pair .
+b.pack()
+b2=Button(text="UPDATE",command=update)#updates the list.
+b2.pack()
+
+mainloop()

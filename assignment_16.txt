@@ -1,0 +1,74 @@
+QUES 1
+import sqlite3
+conn=sqlite3.connect("database2.db")
+cur=conn.cursor()
+cd1="Create table Book(bookId int(5) primary key,titleId int(5),location char(20),genre char(20));"
+cd2="Create table Titles(titleId int(5),ISBN int(13),publisherId char(10),publicationYear int(4),foreign key(titleId) references Book(titleId));"
+cd3="Create table Publishers(publisherId char(10),name char(10),streetAddress char(10),suiteNo int(3),zipCodeId int(6),foreign key(publisherId) references Titles(publisherId));"
+cd4="Create table ZipCodes(zipCodeId int(6),city char(10),state char(10),zipCode int(6),foreign key(zipCode) references Publishers(zipCodeId));"
+cd5="Create table AuthorsTitles(authorTitleId char(5),authorId char(7),titleId int(5),foreign key(titleId) references Titles(titleId));"
+cd6="Create table Authors(authorId char(7) primary key,fname char(10),mname char(10),lname char(10),foreign key(authorId) references AuthorsTitles(authorId));"
+cur.execute(cd1)
+cur.execute(cd2)
+cur.execute(cd3)
+cur.execute(cd4)
+cur.execute(cd5)
+cur.execute(cd6)
+print("Tables are created")
+
+QUES 2
+import sqlite3
+conn=sqlite3.connect("database2.db")
+cur=conn.cursor()
+#inserting values into the tables
+cmd1='insert into Book values(268,3108,"Chandigarh","Comedy");'
+cur.execute(cmd1)
+cmd1='insert into Book values(260,3104,"Delhi","Horror");'
+cur.execute(cmd1)
+cmd1='insert into Book values(2667,3111,"Noida","Tragedy");'
+cur.execute(cmd1)
+cmd2='insert into Titles values(3102,1234567812,"TH3",1976);'
+cur.execute(cmd2)
+cmd2='insert into Titles values(3126,146678912,"TB4",1987);'
+cur.execute(cmd2)
+cmd2='insert into Titles values(3196,1124345612,"UT1",2010);'
+cur.execute(cmd2)
+cmd3='insert into Publishers values("123","Shruti Das","CityCentre",66,123000);'
+cur.execute(cmd3)
+cmd3='insert into Publishers values("122","Arun Singh","NewCity",65,124000);'
+cur.execute(cmd3)
+cmd4='insert into ZipCodes values(147000,"South Delhi","Delhi",110052);'
+cur.execute(cmd4)
+cmd4='insert into ZipCodes values(1457000,"CP","Delhi",110000);'
+cur.execute(cmd4)
+cmd4='insert into ZipCodes values(123010,"hauz khaas","Delhi",770052);'
+cur.execute(cmd4)
+cmd5='insert into AuthorsTitles values("RA441","MYNAME",12345);'
+cur.execute(cmd5)
+cmd5='insert into AuthorsTitles values("RA41","MYNAME1",78900);'
+cur.execute(cmd5)
+cmd6='insert into Authors values("MASIME","mansi","kumar","mehta");'
+cur.execute(cmd6)
+conn.commit()
+print("Values inserted")
+
+QUES 3
+import sqlite3
+conn=sqlite3.connect("database2.db")
+cur=conn.cursor()
+#updating some values in the tables created in test database
+print("Original values of the table Book")
+cmd="select * from Book;"
+cur.execute(cmd)
+for i in cur.fetchall():
+    print(i)
+print("After updating the location for bookId 268")
+cmd='update Book set location = "Mysore" where bookId = 268;'
+cur.execute(cmd)
+print("after updating values of the table Book")
+cmd="select * from Book;"
+cur.execute(cmd)
+for i in cur.fetchall():
+    print(i)
+print("Values updated")
+
